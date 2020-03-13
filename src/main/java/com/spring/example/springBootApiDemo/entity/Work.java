@@ -18,64 +18,64 @@ public class Work {
     @Column(name="work_name", length = 60)
 	private String workName;
 	
-	@JsonFormat(pattern = "yyyy-mm-dd", shape = Shape.STRING)
+    @JsonFormat(pattern = "yyyy-mm-dd", shape = Shape.STRING)
     @Column(name="starting_date", length = 10)
 	private String startingDate;
 	
-	@JsonFormat(pattern = "yyyy-mm-dd", shape = Shape.STRING)
+    @JsonFormat(pattern = "yyyy-mm-dd", shape = Shape.STRING)
     @Column(name="end_date", length = 10)
 	private String endDate;
 	
-	@Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     @Column(length = 8)
 	private WorkStatus status;
 
 	public Long getId() {
-		return id;
+	    return id;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+	    this.id = id;
 	}
 
 	public String getWorkName() {
-		return workName;
+	    return workName;
 	}
 
 	public void setWorkName(String workName) {
-		this.workName = workName;
+	    this.workName = workName;
 	}
 
 	public String getStartingDate() {
-		return startingDate;
+	    return startingDate;
 	}
 
 	public void setStartingDate(String startingDate) {
-		this.startingDate = startingDate;
+	    this.startingDate = startingDate;
 	}
 
 	public String getEndDate() {
-		return endDate;
+	    return endDate;
 	}
 
 	public void setEndDate(String endDate) {
-		this.endDate = endDate;
+	    this.endDate = endDate;
 	}
 
 	public WorkStatus getStatus() {
-		return status;
+	    return status;
 	}
 
 	public void setStatus(WorkStatus status) {
-		this.status = status;
+	    this.status = status;
 	}
 
 	public Work( String workName, String startingDate, String endDate, WorkStatus status) {
-		super();
-		this.workName = workName;
-		this.startingDate = startingDate;
-		this.endDate = endDate;
-		this.status = status;
+	    super();
+	    this.workName = workName;
+	    this.startingDate = startingDate;
+	    this.endDate = endDate;
+	    this.status = status;
 	}
 	
 	public Work(){}

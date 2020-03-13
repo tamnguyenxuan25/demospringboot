@@ -28,7 +28,7 @@ public class WorkRestController {
 	
 	@GetMapping
     public ResponseEntity<List<Work>> works(
-    		@RequestParam(defaultValue = "0") Integer pageNo, 
+            @RequestParam(defaultValue = "0") Integer pageNo, 
             @RequestParam(defaultValue = "10") Integer pageSize,
             @RequestParam(defaultValue = "id") String sortBy) {
         List<Work> works = workService.getAll(pageNo, pageSize, sortBy);
@@ -61,9 +61,8 @@ public class WorkRestController {
     @PutMapping("/{id}")
     public ResponseEntity<Work> update(@PathVariable("id") long id, @RequestBody Work work) {
         Optional<Work> workOptional = workService.getById(id);
-
         if (workOptional.isPresent()) {
-        	Work _work = workService.update(work);
+            Work _work = workService.update(work);
             return new ResponseEntity<>(_work, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -23,37 +23,34 @@ public class WorkServiceImpl implements WorkService{
 
 	@Override
 	public List<Work> getAll(Integer pageNo, Integer pageSize, String sortBy) {
-		Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
-		
-		Page<Work> pagedResult = workRepository.findAll(paging);
-
-		if(pagedResult.hasContent()) {
+	    Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
+	    Page<Work> pagedResult = workRepository.findAll(paging);
+	    if(pagedResult.hasContent()) {
             return pagedResult.getContent();
         } else {
             return new ArrayList<Work>();
         }
-	}
+    }
 
 	@Override
 	public Optional<Work> getById(Long Id) {
-		Optional<Work> workOpt = workRepository.findById(Id);
-		return workOpt;
+        Optional<Work> workOpt = workRepository.findById(Id);
+        return workOpt;
 	}
 
 	@Override
 	public Work add(Work work) {
-		return workRepository.save(work);
+        return workRepository.save(work);
 	}
 
 	@Override
 	public void delete(Long workId) {
-		workRepository.deleteById(workId);
-		
+        workRepository.deleteById(workId);
 	}
 
 	@Override
 	public Work update(Work work) {
-		return workRepository.save(work);
-	}
+        return workRepository.save(work);
+    }
 
 }
